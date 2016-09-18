@@ -18,3 +18,16 @@ CheckInventoryIntent Can I get a {Item}
 CheckInventoryIntent Can I buy {Item}
 CheckInventoryIntent Can I buy a  {Item}
 CheckInventoryIntent Can I buy any {Item}
+CheckInventoryIntent Check number of {Item}
+CheckInventoryIntent Check amount of {Item}
+
+ChangeInventoryIntent Change number of {Item} to {Number}
+ChangeInventoryIntent Change amount of {Item} to {Number}
+ChangeInventoryIntent There are {Number} of {Item}
+ChangeInventoryIntent There is {Number} {Item}
+ChangeInventoryIntent Change {Item} to {Number}
+ChangeInventoryIntent We have {Number} of {Item}
+ChangeInventoryIntent We have {Number} {Item}
+ChangeInventoryIntent There is {Number} {Item} in stock
+ChangeInventoryIntent There are {Number} {Item} in stock
+
