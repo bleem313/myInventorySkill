@@ -16,19 +16,11 @@ var AlexaSkill = require('./AlexaSkill'),
 var APP_ID = "amzn1.ask.skill.9696f5d2-31d0-4193-8d87-f86787ef61b7";//replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 var skillContext = {};
 
-/**
- * ScoreKeeper is a child of AlexaSkill.
- * To read more about inheritance in JavaScript, see the link below.
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
- */
 var InventoryManager = function () {
     AlexaSkill.call(this, APP_ID);
     skillContext.needMoreHelp = true;
 };
 
-
-// Extend AlexaSkill
 InventoryManager.prototype = Object.create(AlexaSkill.prototype);
 InventoryManager.prototype.constructor = InventoryManager;
 
@@ -36,4 +28,3 @@ eventHandlers.register(InventoryManager.prototype.eventHandlers, skillContext);
 intentHandlers.register(InventoryManager.prototype.intentHandlers, skillContext);
 
 module.exports = InventoryManager;
-

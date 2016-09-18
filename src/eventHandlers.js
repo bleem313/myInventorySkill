@@ -12,11 +12,6 @@
 
 var registerEventHandlers = function (eventHandlers, skillContext) {
     eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-        //if user said a one shot command that triggered an intent event,
-        //it will start a new session, and then we should avoid speaking too many words.
-    };
-
-    eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
         console.log("HelloWorld onSessionStarted requestId: " + sessionStartedRequest.requestId
             + ", sessionId: " + session.sessionId);
         // any initialization logic goes here
