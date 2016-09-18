@@ -5,3 +5,5 @@ HelloWorldIntent say hi
 HelloWorldIntent say hi world
 HelloWorldIntent hi
 HelloWorldIntent how are you
+
+CheckInventoryIntent How many {Item} are in stock

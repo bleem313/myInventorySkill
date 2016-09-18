@@ -9,10 +9,35 @@
 */
 
 'use strict';
+var AWS = require("aws-sdk");
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
     intentHandlers.HelloWorldIntent = function (intent, session, response) {
         response.tellWithCard("Hello World! Sean!", "Hello World", "Hello World!");
+    };
+
+    intentHandlers.CheckInventoryIntent = function (intent, session, response) {
+        var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+
+        var item = intent.slots.Item.value.toLowerCase();
+
+        dynamodb.getItem({
+                TableName: 'StoreInventory',
+                Key: {
+                    "FoodName": {
+                        S: item
+                    }
+                }
+            }, function (err, data) {
+                if (err) {
+                    console.log(err, err.stack);
+                    response.tell(err.stack);
+                } else if (data.Item === undefined) {
+                    response.tell("I couldn't find any inventory for " + intent.slots.Item.value + ".");
+                } else {
+                    response.tell(data.Item.QTY.N);
+                }
+            });
     };
 
     intentHandlers['AMAZON.HelpIntent'] = function (intent, session, response) {
