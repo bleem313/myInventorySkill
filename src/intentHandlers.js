@@ -31,7 +31,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                 } else if (data.Item === undefined) {
                     response.tell("I'm sorry, I can't find any " + item + " in stock.");
                 } else {
-                    response.tell(data.Item.QTY.N);
+                    response.tell("There are " + data.Item.QTY.N + " " + item + " in stock.");
                 }
             });
     };
