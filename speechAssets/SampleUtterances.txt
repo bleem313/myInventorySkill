@@ -1,13 +1,32 @@
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
-HelloWorldIntent hello
-HelloWorldIntent say hi
-HelloWorldIntent say hi world
-HelloWorldIntent hi
-HelloWorldIntent how are you
-
 CheckInventoryIntent How many {Item} are in stock
+CheckInventoryIntent How many {Item} are there
+CheckInventoryIntent Do you have {Item}
+CheckInventoryIntent Do you have a {Item}
+CheckInventoryIntent Are there any {Item}
+CheckInventoryIntent Is there any {Item}
+CheckInventoryIntent Is there {Item}
+CheckInventoryIntent Do you have any {Item}
+CheckInventoryIntent Is there any {Item} in stock
+CheckInventoryIntent Do you have {Item} in stock
+CheckInventoryIntent Do you have any {Item} in stock
+CheckInventoryIntent Do you have any {Item} left
+CheckInventoryIntent Is there any {Item} left
+CheckInventoryIntent Is there a  {Item}
+CheckInventoryIntent Is there a {Item} left
+CheckInventoryIntent Can I get {Item}
+CheckInventoryIntent Can I get a {Item}
+CheckInventoryIntent Can I buy {Item}
+CheckInventoryIntent Can I buy a  {Item}
+CheckInventoryIntent Can I buy any {Item}
+CheckInventoryIntent Check number of {Item}
+CheckInventoryIntent Check amount of {Item}
 
+ChangeInventoryIntent Change number of {Item} to {Number}
+ChangeInventoryIntent Change amount of {Item} to {Number}
+ChangeInventoryIntent There are {Number} of {Item}
+ChangeInventoryIntent There is {Number} {Item}
 ChangeInventoryIntent Change {Item} to {Number}
-
-LowInventoryIntent What are we understocked on
+ChangeInventoryIntent We have {Number} of {Item}
+ChangeInventoryIntent We have {Number} {Item}
+ChangeInventoryIntent There is {Number} {Item} in stock
+ChangeInventoryIntent There are {Number} {Item} in stock
