@@ -12,10 +12,6 @@
 var AWS = require("aws-sdk");
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
-    intentHandlers.HelloWorldIntent = function (intent, session, response) {
-        response.tellWithCard("Hello World! Sean!", "Hello World", "Hello World!");
-    };
-
     intentHandlers.CheckInventoryIntent = function (intent, session, response) {
         var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
@@ -32,6 +28,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                 if (err) {
                     console.log(err, err.stack);
                     response.tell('');
+                } else if (data.Item === undefined) {
+                    response.tell("I'm sorry, I can't find any " + item + " in stock.");
                 } else {
                     response.tell(data.Item.QTY.N);
                 }
@@ -47,26 +45,9 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
         var currentNumber = "0";
 
+        currentNumber = number.toString();
 
-         // dynamodb.getItem({
-         //        TableName: 'StoreInventory',
-         //        Key: {
-         //            "FoodName": {
-         //                S: item
-         //            }
-         //        }
-         //    }, function (err, data) {
-         //        if (err) {
-         //            console.log(err, err.stack);
-         //            response.tell('');
-         //        } else {
-         //            currentNumber = data.Item.QTY.N;
-         //        }
-         //    });
-
-         currentNumber = number.toString();
-
-         dynamodb.putItem({
+        dynamodb.putItem({
                 TableName: 'StoreInventory',
                 Item: {
                     "FoodName": {
@@ -80,61 +61,10 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                 if (err) {
                     console.log(err, err.stack);
                     response.tell('');
-                }
-            });
-
-            dynamodb.getItem({
-                TableName: 'StoreInventory',
-                Key: {
-                    "FoodName": {
-                        S: item
-                    }
-                }
-            }, function (err, data) {
-                if (err) {
-                    console.log(err, err.stack);
-                    response.tell('');
                 } else {
-                    response.tell(data.Item.FoodName.S + " now has " + currentNumber + " in inventory.");
+                    response.tell(item + " now has " + currentNumber + " in inventory.");
                 }
             });
-
-    };
-
-    intentHandlers.LowInventoryIntent = function (intent, session, response) {
-        var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
-
-        var outspeach = ''
-
-        //var Items = ["red bull","red bull zero","red bull sugar Free","gatorade orange","gatorade lime","gatorade lemonade"];
-        var Items = ["red bull","gatorade orange"];
-
-        Items.forEach(function(item){
-            outspeach += item;
-            dynamodb.getItem({
-                TableName: 'StoreInventory',
-                Key: {
-                    "FoodName": {
-                        S: item
-                    }
-                }
-            }, function (err, data) {
-                if (err) {
-                    console.log(err, err.stack);
-                    outspeach += "error";
-                } else if (data.Item === undefined) {
-                    outspeach += "none";
-                } else {
-                    outspeach += "run";
-                    if (data.Item.QTY.N < (data.Item.CAP.N * 0.1)) {
-                        outspeach += data.Item.FoodName.S;
-                    }
-                }
-            });
-        });
-
-        response.tell("We are low on " + outspeach);
-
     };
 
     intentHandlers['AMAZON.HelpIntent'] = function (intent, session, response) {
