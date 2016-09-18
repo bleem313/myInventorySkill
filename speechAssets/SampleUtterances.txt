@@ -7,3 +7,7 @@ HelloWorldIntent hi
 HelloWorldIntent how are you
 
 CheckInventoryIntent How many {Item} are in stock
+
+ChangeInventoryIntent Change {Item} to {Number}
+
+LowInventoryIntent What are we understocked on
