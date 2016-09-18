@@ -30,3 +30,4 @@ ChangeInventoryIntent We have {Number} of {Item}
 ChangeInventoryIntent We have {Number} {Item}
 ChangeInventoryIntent There is {Number} {Item} in stock
 ChangeInventoryIntent There are {Number} {Item} in stock
+
