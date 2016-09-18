@@ -1,9 +1,20 @@
-HelloWorldIntent say hello
-HelloWorldIntent say hello world
-HelloWorldIntent hello
-HelloWorldIntent say hi
-HelloWorldIntent say hi world
-HelloWorldIntent hi
-HelloWorldIntent how are you
-
 CheckInventoryIntent How many {Item} are in stock
+CheckInventoryIntent How many {Item} are there
+CheckInventoryIntent Do you have {Item}
+CheckInventoryIntent Do you have a {Item}
+CheckInventoryIntent Are there any {Item}
+CheckInventoryIntent Is there any {Item}
+CheckInventoryIntent Is there {Item}
+CheckInventoryIntent Do you have any {Item}
+CheckInventoryIntent Is there any {Item} in stock
+CheckInventoryIntent Do you have {Item} in stock
+CheckInventoryIntent Do you have any {Item} in stock
+CheckInventoryIntent Do you have any {Item} left
+CheckInventoryIntent Is there any {Item} left
+CheckInventoryIntent Is there a  {Item}
+CheckInventoryIntent Is there a {Item} left
+CheckInventoryIntent Can I get {Item}
+CheckInventoryIntent Can I get a {Item}
+CheckInventoryIntent Can I buy {Item}
+CheckInventoryIntent Can I buy a  {Item}
+CheckInventoryIntent Can I buy any {Item}
